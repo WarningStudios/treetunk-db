@@ -1,0 +1,167 @@
+    :root {
+  --bg-dark: #121212;
+  --card-dark: #1e1e1e;
+  --text-light: #e0e0e0;
+  --accent: #007BFF;
+  --accent-hover: #3399ff;
+  --danger: #e74c3c;
+  --danger-hover: #ff6b6b;
+  --border-dark: #333;
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --input-bg: #2a2a2a;
+  --input-border: #444;
+}
+
+/* Grundlayout */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: system-ui, sans-serif;
+  margin: 2vw;
+  padding: 0;
+}
+
+/* Galerie-Container */
+.database {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Einzelne Bild-Card */
+.database .card {
+  background: var(--card-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px var(--shadow-dark);
+  display: flex;
+  flex-direction: column;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  border: 1px solid var(--border-dark);
+}
+
+.database .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px var(--shadow-dark);
+  border-color: var(--accent);
+}
+
+.database img.element {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.database .meta {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* Upload-Formular */
+form#uploadForm {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+form input[type="file"],
+form input[type="text"] {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-light);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Editorleiste */
+#editor {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 300px;
+  background: var(--card-dark);
+  padding: 16px;
+  box-shadow: -2px 0 8px var(--shadow-dark);
+  border-left: 1px solid var(--border-dark);
+  color: var(--text-light);
+}
+
+#editor h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+#editor img {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+#editor textarea {
+  width: 100%;
+  background-color: var(--input-bg);
+  color: var(--text-light);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 6px;
+  resize: vertical;
+}
+
+#editor button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#saveBtn {
+  background-color: var(--accent);
+  color: white;
+}
+
+#saveBtn:hover {
+  background-color: var(--accent-hover);
+}
+
+#deleteBtn {
+  background-color: var(--danger);
+  color: white;
+}
+
+#deleteBtn:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Responsive tweaks */
+@media (max-width: 420px) {
+  .database img.element { height: 120px; }
+  #editor { width: 100%; position: static; box-shadow: none; border-left: none; }
+}
+
+img { image-rendering: pixelated; }
