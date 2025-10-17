@@ -1,0 +1,52 @@
+  <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>TreetunkDB</title>
+  <link rel="stylesheet" href="static/css/gui.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <h1>Images</h1>
+  <!-- Galerie-Container: hier werden die .card-Elemente eingefügt -->
+  <div class="database" id="bilder"></div>
+  <form id="uploadForm">
+
+    <!-- Bilddatei -->
+    <input type="file" id="bildDatei" accept="image/*" />
+
+    <!-- Position -->
+    
+    <div style="gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+      <label>Breitengrad:
+        <input type="number" id="latDeg" placeholder="Grad" min="0" max="90" />
+        <input type="number" id="latMin" placeholder="Minuten" min="0" max="59" />
+        <select id="latDir">
+          <option value="N">N</option>
+          <option value="S">S</option>
+        </select>
+      </label>
+
+      <label>Längengrad:
+        <input type="number" id="lngDeg" placeholder="Grad" min="0" max="180" />
+        <input type="number" id="lngMin" placeholder="Minuten" min="0" max="59" />
+        <select id="lngDir">
+          <option value="E">E</option>
+          <option value="W">W</option>
+        </select>
+      </label>
+    </div>
+
+
+    <button type="submit">Bild hochladen</button>
+  </form>
+  <div id="editor" style="display:none; position:fixed; right:0; top:80px; width:300px; background:#f9f9f9; padding:16px; box-shadow:-2px 0 8px rgba(0,0,0,0.1);">
+  <h3>Bild bearbeiten</h3>
+  <img id="editorImage" src="" style="width:100%; margin-bottom:12px;" />
+  <textarea id="editorMeta" rows="4" style="width:100%;"></textarea>
+  <button id="saveBtn">Speichern</button>
+  <button id="deleteBtn" style="margin-top:8px; background:#e74c3c; color:white;">Löschen</button>
+</div>  
+  <script src="static/js/database.js"></script>
+</body>
+</html>
